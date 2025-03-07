@@ -54,7 +54,7 @@ sudo systemctl enable jenkins
 sudo systemctl status jenkins
 ```
 
-## 9- Access Jenkins web interface 
+## 9- Access Jenkins web interface
 
 - Finally, open your browser and go to **`http://localhost:8080`** to access the Jenkins web interface.
 
