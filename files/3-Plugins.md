@@ -83,3 +83,79 @@ Let's test the Git Plugin :
 - Create a new freestyle project
 - Under Source Code Management, select "Git"
 - You should be able to enter the repository URL
+
+***
+
+## Docker PLugin Test (Nginx)
+
+**Prerequisites :**
+
+- Make sure Docker is installed on your Jenkins server:
+
+```bash
+sudo apt update
+sudo apt install docker.io -y
+sudo systemctl start docker
+sudo systemctl enable docker
+```
+
+- Add the Jenkins user to the Docker group so it can run Docker commands:
+
+```bash
+sudo usermod -aG docker jenkins
+sudo systemctl restart jenkins
+```
+
+- Now Let's Create a Docker Test Pipeline
+
+- --> From your Jenkins dashboard, click "New Item"
+- --> Enter a name (e.g., "Docker-Nginx-Test")
+- --> Select "Pipeline" and click "OK"
+- --> Scroll down to the Pipeline section
+- --> Copy and paste the pipeline script I will provide in the "Script" text area
+- --> Click "Save"
+
+```groovy
+pipeline {
+    agent any
+    
+    stages {
+        stage('Pull Nginx Image') {
+            steps {
+                sh 'docker pull nginx:latest'
+            }
+        }
+        
+        stage('Run Nginx Container') {
+            steps {
+                // Stop and remove container if it exists
+                sh 'docker stop nginx-test || true'
+                sh 'docker rm nginx-test || true'
+                
+                // Run nginx container on port 8081
+                sh 'docker run -d -p 8081:80 --name nginx-test nginx:latest'
+            }
+        }
+        
+        stage('Test Nginx') {
+            steps {
+                // Wait a moment for nginx to start
+                sh 'sleep 5'
+                
+                // Test if nginx responds on port 8081
+                sh 'curl -s http://localhost:8081 > /dev/null && echo "Nginx is running" || echo "Nginx failed to start"'
+            }
+        }
+    }
+    
+    post {
+        always {
+            // Cleanup - stop and remove the container
+            sh 'docker stop nginx-test || true'
+            sh 'docker rm nginx-test || true'
+        }
+    }
+}
+```
+
+- Make sure that the Nginx Docker image is running on an available port because using port 8080 will fail since Jenkins is already running on the same port.
