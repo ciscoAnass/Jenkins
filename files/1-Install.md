@@ -58,8 +58,8 @@ sudo systemctl status jenkins
 
 - Finally, open your browser and go to **`http://localhost:8080`** to access the Jenkins web interface.
 
+![Jenkins Web Interface](/img/1-install.png)
 
 ***
 
-- 
-This is how you would structure a GitHub project README for Jenkins installation on **Debian 12**. Feel free to adjust the formatting or add more details to suit your project!
+- This is how you would structure a GitHub project README for Jenkins installation on **Debian 12**. Feel free to adjust the formatting or add more details to suit your project!
