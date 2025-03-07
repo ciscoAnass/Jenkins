@@ -60,6 +60,16 @@ sudo systemctl status jenkins
 
 ![Jenkins Web Interface](/img/1-install.png)
 
+## 10- Complete the Initial Setup and login as Admin
+
+- Access to your terminal and execute this command :
+  
+```bash
+sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+```
+
+- You JUst got the Admin Password so you can login as admin using this password
+
 ***
 
 - This is how you would structure a GitHub project README for Jenkins installation on **Debian 12**. Feel free to adjust the formatting or add more details to suit your project!
