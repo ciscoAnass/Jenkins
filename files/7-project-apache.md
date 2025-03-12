@@ -44,7 +44,7 @@ sudo systemctl restart apache2
 
 
 # Verify Apache is running
-echo "Verifying Nginx status..."
+echo "Verifying Apache status..."
 if sudo systemctl is-active --quiet apache2; then
   echo "=== SUCCESS: Apache is running! ==="
   echo "You can access it at: http://$(hostname -I | cut -d " " -f1)"
