@@ -16,7 +16,7 @@
 
 [6- GitHub Integration](/files/6-Github-Integration.md)
 
-[7- Mini Project](/files/7-project.md)
+[7- Mini Project : Apache Deployment](/files/7-project-apache.md)
 
 ## Overview
 
