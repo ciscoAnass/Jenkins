@@ -138,3 +138,4 @@ Now Let's get access to our Jenkins.
 
 - Go to Jenkins Portal and click on **New Item**.
 - Give it a Name and choose Freestyle
+- In SCM choose *Git* Option and put the repo URL , Credentials as Username and Password (Access Token) , Bran for default is main
