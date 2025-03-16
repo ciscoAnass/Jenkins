@@ -123,5 +123,3 @@ You can access your Nginx server at:
 
 - http://localhost (from the machine itself)
 - http://YOUR_IP (from the internet, if your security group allows port 80)
-
-

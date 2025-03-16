@@ -20,6 +20,8 @@
 
 [8- Mini Project : Nginx Deployment](/files/8-project-nginx.md)
 
+[9- Gitlab Integration](/files/9-Gitlab-Integration.md)
+
 ## Overview
 
 - This guide covers everything from installing Jenkins to setting up users, managing plugins, configuring settings, integrating with GitHub, and running your first job. It also includes a mini-project to apply what you've learned.

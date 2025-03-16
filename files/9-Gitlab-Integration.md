@@ -1,19 +1,14 @@
-
-
 # Jenkins : Gitlab Integration
-
 
 ## Part 1 : Set Up Docker
 
-- First of all let's Install docker packages : 
-
+- First of all let's Install docker packages :
 
 ```bash
 sudo apt install docker.io docker-compose
 ```
 
-- After Installing Docker Engine and Compose let's create a folder named **Project** : 
-
+- After Installing Docker Engine and Compose let's create a folder named **Project** :
 
 ```bash
 mkdir project
@@ -73,42 +68,38 @@ volumes:
 
 ```
 
-
-Now let' run our containers : 
+Now let' run our containers :
 
 ```bash
 sudo docker-compose up -d
 ```
 
-
 ---
 
 ## Part 2 : Set Up Gitlab
 
-- Go to your browser and get access to this link : **[Gitlab](http://localhost:8929)**
-- In the username Area put  **root**
-- To get the password of Your gitlab execute this command : 
+- Open your browser and go to : **[Gitlab](http://localhost:8929)**
+- In the username field, enter **root**
+- To retrieve your GitLab password, run the following command:
 
 ```bash
 sudo docker exec -it gitlab-anass grep 'Password:' /etc/gitlab/initial_root_password
 ```
 
-- Copy and Paste the password and Access to your Gitlab 
-- Now right after accessing to your Gitlab Portal , Create a project and name it whatever you want.
-- Now It's Time to generate a Access Token  for your repo : 
-- Go to Setting ---> Access Tokens ---> Add New Token
-- Name it whatever you want , and give it this scopes : **"api - read_repository - write_repository"**
-- Copy the Access Token and Save in safe File because it's the last time you gonna see it.
-
+- Copy and paste the password to log in to GitLab.
+- Once logged in, create a new project and name it as you wish.
+- Now, it's time to generate an Access Token for your repository:
+- Go to Settings → Access Tokens → Add New Token.
+- Name it as you wish and assign the following scopes: **"api - read_repository - write_repository"**
+- Copy the Access Token and save it in a secure file, as this is the last time you will see it.
 
 ---
 
 ## Part 3 : Set Up Jenkins
 
-
 - Go to your browser and get access to this link : **[Jenkins](http://localhost:8080)**
 - In the username Area put  **admin**
-- To get the password of Your Jenkins execute this command : 
+- To get the password of Your Jenkins execute this command :
 
 ```bash
 sudo docker exec -it jenkinsb-anass cat /var/jenkins_home/secrets/initialAdminPassword
@@ -123,19 +114,18 @@ Now Let's get access to our Jenkins.
 
 ## Part 4 : Gitlab Integration on Jenkins (Acces Tokent)
 
+- Go to the Jenkins portal and navigate to: Manage Jenkins → System → GitLab → Credentials.
 
-- Go to Jenkins Portal and follow this :  Manage Jenkins ---> System ---> Gitlab ---> Credentials
-
-- Let's give the Connection a Random Name
-- Gitlab Host URL : **`http://172.17.0.1:8929`**
-- Credentials : GitLab API token (You have to copy and paste the Access Token we did create before in Gitlab)
-
+- Give the connection a random name.
+- Set the GitLab Host URL to: **`http://172.17.0.1:8929`**
+- For Credentials, select GitLab API token and paste the Access Token you created in GitLab.
 
 ---
 
 ## Part 5 : First Job to test the Integrity
 
-
-- Go to Jenkins Portal and click on **New Item**.
-- Give it a Name and choose Freestyle
-- In SCM choose *Git* Option and put the repo URL , Credentials as Username and Password (Access Token) , Bran for default is main
+- Go to the Jenkins portal and click on **New Item**.
+- Give it a name and select Freestyle project.
+- In the SCM section, choose **Git** and enter the repository URL.
+- For Credentials, use the Username and Password (Access Token).
+- The default branch is main.
