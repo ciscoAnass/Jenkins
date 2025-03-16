@@ -15,7 +15,7 @@ mkdir project
 cd project
 ```
 
-- Inside this folder let's create a docker compose file and edit it : 
+- Inside this folder let's create a docker compose file and edit it :
 
 ```bash
 touch docker-compose.yml

@@ -121,5 +121,5 @@ jenkins ALL=(ALL) NOPASSWD: /usr/bin/apt-get, /usr/bin/systemctl, /usr/bin/tee, 
 
 You can access your Nginx server at:
 
-- http://localhost (from the machine itself)
+- **`http://localhost`** (from the machine itself)
 - http://YOUR_IP (from the internet, if your security group allows port 80)
