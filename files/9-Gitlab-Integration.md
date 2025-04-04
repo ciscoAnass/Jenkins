@@ -112,7 +112,7 @@ Now Let's get access to our Jenkins.
 
 ---
 
-## Part 4 : Gitlab Integration on Jenkins (Acces Tokent)
+## Part 4 : Gitlab Integration on Jenkins (Access Token)
 
 - Go to the Jenkins portal and navigate to: Manage Jenkins → System → GitLab → Credentials.
 
